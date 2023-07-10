@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{{ url_for('static', filename='css/styles.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/navbar.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/landing.css') }}"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+    <link rel="icon" href="../static/images/icons/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <nav>
+      <a href="{{ url_for('index') }}" class="nav-logo">
+        <img class="w-8" src="../static/images/icons/logo.png" alt="Logo" />
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a
+          href="{{ url_for('index') }}"
+          >Home</a
+        >
+        <a
+          href="#"
+          >Portfolio</a
+        >
+        <a
+          href="#"
+          >Buy/Sell</a
+        >
+        <a
+          href="#"
+          >Stock Search</a
+        >
+        <a
+          href="#"
+          >Market Data</a
+        >
+        <a
+          href="#"
+          >Leaderboard</a
+        >
+        <a
+          href="#"
+          >Account</a
+        >
+        <a
+          href="#"
+          >About/Help</a
+        >
+        <a
+          href="{{ url_for('register') }}"
+          style="background-color: var(--color5); padding: 0rem 0.5rem 0.15rem 0.5rem; border-radius: 5px;"
+          >Register</a
+        >
+      </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+    
+    <footer>
+      <h1>Site Map</h1>
+
+    </footer>
+  </body>
+</html>

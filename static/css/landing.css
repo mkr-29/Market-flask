@@ -1,0 +1,121 @@
+/* Landing */
+.landing {
+  display: flex;
+  align-items: center;
+  height: 92vh;
+}
+.landing img {
+  width: 50%;
+  mix-blend-mode: multiply;
+}
+.landing h1 {
+  font-family: var(--font1);
+  color: var(--color1);
+  font-size: 48px;
+}
+.landing span {
+  font-size: 32px;
+}
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--color5);
+  color: var(--color2);
+  font-size: 20px;
+  font-family: var(--font1);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  font-family: var(--font3);
+  font-weight: 800;
+}
+.cta-button:hover {
+  background-color: var(--color4);
+  color: var(--color3);
+}
+/* About */
+.about {
+  display: flex;
+  column-gap: 40px;
+  padding: 0 60px;
+}
+.about span {
+  width: 50%;
+  text-align: justify;
+  font-size: 16.5px;
+  font-family: var(--font3);
+}
+.para-1 span {
+  float: left;
+  font-weight: bold;
+  font-size: 60px !important;
+  font-size: 6rem;
+  line-height: 55px;
+  height: 3rem;
+  text-transform: uppercase;
+  width: auto;
+  margin-right: 0.9rem;
+  font-family: var(--font2);
+}
+.facts-news {
+  display: flex;
+  width: 100%;
+  padding: 0 60px;
+  position: relative;
+  margin-top: 5rem;
+}
+.key-features {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  font-family: var(--font3);
+}
+.market-news {
+  width: 60%;
+  position: relative;
+  font-family: var(--font3);
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* background-color: var(--color3); */
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  padding: 1rem 3rem 0rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.carousel-item ul {
+  list-style: none;
+}
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 40%;
+  z-index: 1;
+  font-size: 2rem;
+  border: none;
+  background: none;
+}
+.carousel-prev:hover,
+.carousel-next:hover {
+  color: var(--color5);
+}
+.carousel-prev {
+  left: 0;
+}
+.carousel-next {
+  right: 0;
+}

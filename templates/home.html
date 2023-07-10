@@ -1,0 +1,136 @@
+{% extends 'base.html' %} {% block title %} Stockz - Home {% endblock %} {%
+block content %}
+<div class="landing">
+  <img src="../static/images/vectors/market1.jpg" alt="" />
+  <h1>
+    Welcome to Stockz:<br /><span>Your Virtual Stock Market Experience.</span>
+    <div>
+      <a href="{{ url_for('login') }}" class="cta-button">Login</a>
+      <a href="{{ url_for('register') }}" class="cta-button">Register</a>
+    </div>
+  </h1>
+</div>
+<div class="about">
+  <span class="para-1">
+    <span>Stockz</span> is an innovative stock market simulation app that offers
+    a risk-free environment for learning and practicing stock trading. Whether
+    you're a novice investor or an experienced trader, StockSim provides a
+    unique platform to develop your skills, explore trading strategies, and stay
+    informed about the dynamic world of finance.<br />
+    With StockSim, you can immerse yourself in the exciting world of stocks
+    using virtual money. Test your investment instincts, build a diversified
+    portfolio, and experience the thrill of making strategic trading
+    decisions.<br />
+    Stay up-to-date with real-time market data, company profiles, and
+    comprehensive stock information to make well-informed investment choices.
+    Our user-friendly interface and intuitive tools ensure a seamless and
+    enjoyable trading experience.<br />
+    Compete with other traders in friendly challenges and climb the leaderboard.
+    Showcase your trading prowess and engage with the vibrant StockSim
+    community.<br />
+    We understand the importance of knowledge in the stock market. That's why we
+    provide a
+  </span>
+  <span>
+    wealth of educational resources and expert insights to enhance your trading
+    skills. Access our library of articles, videos, and tutorials to deepen your
+    understanding of the stock market and develop successful trading
+    strategies.<br />
+    At StockSim, your security and privacy are our top priorities. We maintain a
+    secure and reliable platform, ensuring your data is protected.<br />
+    Whether you're a beginner eager to learn or a seasoned trader looking for a
+    risk-free trading environment, StockSim is your gateway to the world of
+    stocks. Join us today and embark on your virtual stock market adventure!<br />
+    Discover the excitement of stock trading with StockSim – Sign up now and
+    start honing your skills with virtual dollars!<br />
+    In this optimized version, the content focuses on conveying the key aspects
+    of StockSim while incorporating relevant keywords for SEO purposes. The text
+    aims to provide a clear overview of the app's features, benefits, and the
+    value it offers to users.<br />
+  </span>
+</div>
+<div class="facts-news">
+  <ul class="key-features">
+    <h2>Key Features</h2>
+    <li>Simulate buying and selling stocks with virtual money.</li>
+    <li>Track your portfolio and monitor stock performance.</li>
+    <li>Explore real-time market data and company information.</li>
+    <li>Learn and practice different trading strategies.</li>
+    <li>Compete with other users on the leaderboard.</li>
+    <li>Stay up-to-date with market news and trends.</li>
+  </ul>
+  <!-- Market News Carousel -->
+  <div class="market-news">
+    <!-- using api call from news -->
+    <h1>Market News</h1>
+
+    <div class="carousel">
+      <div class="carousel-container">
+        {% for news_item in news_data %}
+        <div class="carousel-item">
+          <h2>{{ news_item.title }}</h2>
+          <ul>
+            {% for item in news_item.details %}
+            <li>{{ item }}</li>
+            {% endfor %}
+            <!-- source url -->
+            <li>
+              <a href="{{ news_item.url }}" target="_blank">Read More</a>
+            </li>
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+
+      <button class="carousel-prev">&#8656;</button>
+      <button class="carousel-next">&#8658;</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carouselContainer = document.querySelector(".carousel-container");
+        const carouselItems = document.querySelectorAll(".carousel-item");
+        const totalItems = carouselItems.length;
+        const slideWidth = carouselItems[0].offsetWidth;
+        const visibleSlides = Math.floor(
+          carouselContainer.offsetWidth / slideWidth
+        );
+        let currentPosition = 0;
+
+        // Add event listeners to the buttons
+        const prevButton = document.querySelector(".carousel-prev");
+        const nextButton = document.querySelector(".carousel-next");
+
+        prevButton.addEventListener("click", slidePrev);
+        nextButton.addEventListener("click", slideNext);
+
+        function slidePrev() {
+          currentPosition -= 1;
+          if (currentPosition < 0) {
+            currentPosition = totalItems - visibleSlides;
+            carouselContainer.style.transform = `translateX(-${
+              currentPosition * slideWidth
+            }px)`;
+          } else {
+            carouselContainer.style.transform = `translateX(-${
+              currentPosition * slideWidth
+            }px)`;
+          }
+        }
+
+        function slideNext() {
+          currentPosition += 1;
+          if (currentPosition > totalItems - visibleSlides) {
+            currentPosition = 0;
+            carouselContainer.style.transform = `translateX(0)`;
+          } else {
+            carouselContainer.style.transform = `translateX(-${
+              currentPosition * slideWidth
+            }px)`;
+          }
+        }
+      });
+    </script>
+  </div>
+</div>
+{% endblock %}
