@@ -68,16 +68,18 @@ block content %}
       <div class="carousel-container">
         {% for news_item in news_data %}
         <div class="carousel-item">
-          <h2>{{ news_item.title }}</h2>
-          <ul>
-            {% for item in news_item.details %}
-            <li>{{ item }}</li>
-            {% endfor %}
-            <!-- source url -->
-            <li>
-              <a href="{{ news_item.url }}" target="_blank">Read More</a>
-            </li>
-          </ul>
+          <div class="news-content">
+            <h2>{{ news_item.title }}</h2>
+            <ul>
+              {% for item in news_item.details %}
+              <li>{{ item | striptags }}</li>
+              {% endfor %}
+              <!-- source url -->
+              <li>
+                <a href="{{ news_item.url }}" target="_blank">Read More</a>
+              </li>
+            </ul>
+          </div>
         </div>
         {% endfor %}
       </div>
